@@ -56,33 +56,18 @@ class Fun(commands.Cog):
 			embed = discord.Embed(title = "Failed To Run Command", description = "**Reason:** {}".format(error), colour = random.randint(0,0xffffff))
 			await ctx.send(embed = embed)
 			
-	@commands.command(name='suicide')
+	@commands.command(name='gib-rose')
 	@commands.cooldown(1, 300, commands.BucketType.user)
-	async def suicide(self, ctx, target : discord.Member = None, *, reason = "none"):
-		title = "{} is Killing Himslef, Its too late !!".format(ctx.author.name) if target == None else "{} is Killing Himslef, Its too late !!".format(ctx.author.name, target.name)
-		description = "Gun is Loaded guys I'm sorry!" if reason == "none" else "The Bullet Has been Loaded! Time to fire the trigger!\n**Reason:** {}".format(reason)
-		url = 'https://cdn.discordapp.com/attachments/755730944660340786/776008877295665162/suicide.gif'
+	async def shoot(self, ctx, target : discord.Member = None, *, reason = "none"):
+		title = "{} just gave a rose  to everyone!".format(ctx.author.name) if target == None else "{} is Giving {} A Beautiful Rose!".format(ctx.author.name, target.name)
+		description = "Bro Take This" if reason == "none" else "C'mon bro its awesome!\n**Reason:** {}".format(reason)
+		url = 'https://cdn.discordapp.com/attachments/729619832097472552/776024679684505600/gibrose.gif'
 		await self.fun_command_embed(ctx, title, description, url)
-	@suicide.error
-	async def suicide_error(self, ctx, error):
+	@gibrose.error
+	async def gibrose_error(self, ctx, error):
 		if isinstance(error, commands.CommandOnCooldown):
 			embed = discord.Embed(title = "Failed To Run Command", description = "**Reason:** {}".format(error), colour = random.randint(0,0xffffff))
 			await ctx.send(embed = embed)
-			
-	@commands.command(name='drown')
-	@commands.cooldown(1, 300, commands.BucketType.user)
-	async def drown(self, ctx, target : discord.Member = None, *, reason = "none"):
-		title = "{} argggggggghhhh !".format(ctx.author.name) if target == None else "{} is Drowning {} Into the toilet seat".format(ctx.author.name, target.name)
-		description = "What shall I say Now, no words only bubbles" if reason == "none" else "C'mon I taught you how to breathe in water !\n**Reason:** {}".format(reason)
-		url = 'https://cdn.discordapp.com/attachments/755730944660340786/776011071806373908/drown.gif'
-		await self.fun_command_embed(ctx, title, description, url)
-	@drown.error
-	async def drown_error(self, ctx, error):
-		if isinstance(error, commands.CommandOnCooldown):
-			embed = discord.Embed(title = "Failed To Run Command", description = "**Reason:** {}".format(error), colour = random.randint(0,0xffffff))
-			await ctx.send(embed = embed)
-			
-			
 			
 
 	
